@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foundry-vtt
+  namespace: foundry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: foundry
+  template:
+    metadata:
+      labels:
+        app: foundry
+    spec:
+      containers:
+      - name: foundry-vtt
+        image: docker.io/resb53/node-foundry:0.1
+        volumeMounts:
+        - mountPath: /foundry
+          name: foundry-volume
+      volumes:
+      - name: foundry-volume
+        hostPath:
+          path: /opt/foundry
+          type: Directory
