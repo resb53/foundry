@@ -1,16 +1,23 @@
-kind: Pod
-apiVersion: v1
+kind: Deployment
+apiVersion: apps/v1
 metadata:
   name: banana-app
   namespace: example
-  labels:
-    app: banana
 spec:
-  containers:
-    - name: banana-app
-      image: hashicorp/http-echo
-      args:
-        - "-text=banana"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: banana
+  template:
+    metadata:
+      labels:
+        app: banana
+    spec:
+      containers:
+        - name: banana-app
+          image: hashicorp/http-echo
+          args:
+            - "-text=bananadeploy"
 
 ---
 

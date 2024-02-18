@@ -7,10 +7,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - vtt.morphos.uk
+    - morphos.uk
     secretName: foundry-tls
   rules:
-  - host: vtt.example.com
+  - host: morphos.uk
     http:
       paths:
       - path: /

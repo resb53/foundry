@@ -24,3 +24,19 @@ spec:
         hostPath:
           path: /opt/foundry
           type: Directory
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: foundry-vtt
+  namespace: foundry
+spec:
+  selector:
+    app: foundry
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 30000
+      targetPort: 30000
