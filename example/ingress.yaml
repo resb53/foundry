@@ -5,8 +5,13 @@ metadata:
   namespace: example
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - morphos.uk
+    secretName: example-tls
   rules:
-  - http:
+  - host: morphos.uk
+    http:
       paths:
         - path: /apple
           pathType: Prefix
