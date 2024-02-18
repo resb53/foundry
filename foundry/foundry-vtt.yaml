@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: foundry-vtt
-        image: docker.io/resb53/node-foundry:0.1
+        image: docker.io/resb53/node-foundry:0.1-slim
         volumeMounts:
         - mountPath: /foundry
           name: foundry-volume
