@@ -1,0 +1,30 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: foundry-http-ingress
+  namespace: foundry
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`vtt.morphos.uk`)
+    kind: Rule
+    services:
+    - name: foundry-vtt
+      port: 30000
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: foundry-https-ingress
+  namespace: foundry
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`vtt.morphos.uk`)
+    kind: Rule
+    services:
+    - name: foundry-vtt
+      port: 30000
