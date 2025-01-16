@@ -1,4 +1,4 @@
-FROM node:20.11.1-bookworm-slim
+FROM node:23.6.0-bookworm-slim
 EXPOSE 30000
 USER root
 VOLUME ["/foundry"]
